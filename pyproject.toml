@@ -1,0 +1,23 @@
+[project]
+name = "pinapedia-adk"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "oscarteran", email = "oscar-hdzteran@hotmail.com" }
+]
+requires-python = ">=3.12"
+dependencies = [
+    "google-adk>=2.14.1",
+    "google-cloud-firestore>=2.34.1",
+    "pydantic-settings>=2.16.3",
+    "pymupdf>=2.1",
+    "slowapi>=0.1.10",
+]
+
+[project.scripts]
+pinapedia-adk = "pinapedia_adk:main"
+
+[build-system]
+requires = ["uv_build>=0.13.9,<0.14.0"]
+build-backend = "uv_build"

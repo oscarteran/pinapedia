@@ -1,0 +1,30 @@
+# Una entrada por PDF. Los archivos van en data/pdfs/ (agrega data/pdfs/ al .gitignore
+# si alguna licencia no permite redistribuirlos; el README enlaza la URL original).
+- doc_id: Documento_Champaka          # identificador corto, sin espacios
+  titulo: "Cambios morfológicos en variedades de piña propagadasin vitro ( ́MD-2 ́y  ́Champaka F-153 ́) durante la fasecrecimiento en condiciones de campo"
+  url: "https://ediciones.inca.edu.cu/index.php/ediciones/article/view/1933/4399"                   # URL de donde lo descargaste
+  archivo: data\pdfs\Documento_Champaka.pdf
+  idioma: es
+  licencia: "Revisar en el documento"
+  descargado: 2026-11-20
+- doc_id: Documento_tesis_Salvatierra          # identificador corto, sin espacios
+  titulo: "NUTRICIÓN Y PRODUCCIÓN DE PIÑA MD2 EN FUNCIÓN DE FERTILIZACIÓN CON NITRÓGENO Y POTASIO"
+  url: "https://rinacional.tecnm.mx/bitstream/TecNM/8067/1/AG19110375%20DIANA%20PAOLA%20CONTRERAS%20ROSAS.pdf#:~:text=Introducci%C3%B3n.%20La%20propuesta%20se%20basa%20en%20la,en%20el%20mundo%2C%20los%20cultivares%20comerciales%20predominantes."                   # URL de donde lo descargaste
+  archivo: data\pdfs\Documento_tesis_Salvatierra.pdf
+  idioma: es
+  licencia: "Revisar en el documento"
+  descargado: 2026-11-20
+- doc_id: Documento_Innovacion          # identificador corto, sin espacios
+  titulo: "La piña mexicana frente al reto de la innovación"
+  url: "https://ciestaam.edu.mx/publicaciones2018/libros/pinia-mexicana-frente-al-reto-de-la-innovacion.pdf#:~:text=Introducci%C3%B3n.%20La%20pi%C3%B1a%20en%20M%C3%A9xico%20surge%20y,Cayena%20Lisa%2C%20bajo%20el%20sistema%20de%20producci%C3%B3n."                   # URL de donde lo descargaste
+  archivo: data\pdfs\Documento_Innovacion.pdf
+  idioma: es
+  licencia: "Revisar en el documento"
+  descargado: 2026-11-20
+- doc_id: Documento_LomaBonita          # identificador corto, sin espacios
+  titulo: "Producción de Piña Cayena Lisa y MD2 (Ananas comosus L.) en condiciones de Loma Bonita, Oaxaca"
+  url: "https://www.ecorfan.org/handbooks/Ciencias-BIO-T_I/Handbook_Biologia_y_Agronomia_T1_V1_109_119.pdf"                   # URL de donde lo descargaste
+  archivo: data\pdfs\Documento_LomaBonita.pdf
+  idioma: es
+  licencia: "Revisar en el documento"
+  descargado: 2026-11-20

@@ -1,12 +1,5 @@
-import os
-from google.adk.agents import Agent
+"""Punto de entrada que busca ADK: expone root_agent."""
 
-root_agent = Agent(
-    name        = "coordinador",
-    model       = os.getenv("PINAPEDIA_MODEL", "gemini-3.5-flash-lite"),
-    description = "Asistente experto en producción de piña.",
-    instruction = (
-        "Eres PiñaPedia, un asistente experto en el cultivo de piña. "
-        "Responde siempre en el idioma en que te pregunten."
-    ),
-)
+from app.agents.coordinador import coordinador
+
+root_agent = coordinador

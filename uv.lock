@@ -898,6 +898,7 @@ dependencies = [
     { name = "google-cloud-firestore" },
     { name = "pydantic-settings" },
     { name = "pymupdf" },
+    { name = "pyyaml" },
     { name = "slowapi" },
 ]
 
@@ -907,6 +908,7 @@ requires-dist = [
     { name = "google-cloud-firestore", specifier = ">=2.34.1" },
     { name = "pydantic-settings", specifier = ">=2.16.3" },
     { name = "pymupdf", specifier = ">=2.1" },
+    { name = "pyyaml", specifier = ">=6.0.3" },
     { name = "slowapi", specifier = ">=0.1.10" },
 ]
 

@@ -1,0 +1,33 @@
+# Costos de establecimiento por hectárea, en MXN.
+#
+# IMPORTANTE: los montos son EJEMPLOS ILUSTRATIVOS para el MVP.
+# Reemplázalos con números reales de la parcela antes de publicar,
+# y actualiza "vigencia" y "fuente".
+
+moneda: MXN
+vigencia: "EJEMPLO - actualizar"
+fuente: "PENDIENTE: costos reales de la parcela"
+
+densidad_default_plantas_ha: 60000
+
+# Costo que escala con el número de plantas.
+por_planta:
+  - concepto: "Material vegetativo (hijuelos)"
+    precio_unitario: 1.5
+
+# Costos fijos por hectárea.
+por_hectarea:
+  - concepto: "Preparación de terreno"
+    monto: 15000
+  - concepto: "Siembra (mano de obra)"
+    monto: 12000
+  - concepto: "Fertilizantes"
+    monto: 30000
+  - concepto: "Control fitosanitario"
+    monto: 15000
+  - concepto: "Control de malezas"
+    monto: 8000
+  - concepto: "Inducción floral"
+    monto: 4000
+  - concepto: "Cosecha (mano de obra)"
+    monto: 15000

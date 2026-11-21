@@ -1,0 +1,55 @@
+# Parámetros del ciclo de cultivo por variedad.
+# "dias" = días después de la siembra.
+#
+# IMPORTANTE: son valores de REFERENCIA para el MVP. Antes de publicar,
+# ajústalos con tu guía técnica (INIFAP) y con la práctica real de la parcela,
+# y anota la fuente en el campo "fuente".
+
+fuente: "Empírico"
+
+variedades:
+  MD2:
+    descripcion: "Híbrido MD2 (Golden), ciclo de planta madre"
+    labores:
+      - nombre: "Siembra"
+        dias: 0
+      - nombre: "Enraizamiento"
+        dias: 5
+      - nombre: "Primera fertilización"
+        dias: 30
+      - nombre: "Control de malezas"
+        dias: 45
+      - nombre: "Segunda fertilización"
+        dias: 90
+      - nombre: "Tercera fertilización"
+        dias: 150
+      - nombre: "Cuarta fertilización"
+        dias: 210
+      - nombre: "Inducción floral (forzamiento)"
+        dias: 270
+      - nombre: "Inicio de cosecha (estimado)"
+        dias: 420
+      - nombre: "Fin de cosecha (estimado)"
+        dias: 450
+
+  Cayena Lisa:
+    descripcion: "Cayena Lisa (Champaka), ciclo de planta madre"
+    labores:
+      - nombre: "Siembra"
+        dias: 0
+      - nombre: "Primera fertilización"
+        dias: 30
+      - nombre: "Control de malezas"
+        dias: 45
+      - nombre: "Segunda fertilización"
+        dias: 90
+      - nombre: "Tercera fertilización"
+        dias: 150
+      - nombre: "Cuarta fertilización"
+        dias: 210
+      - nombre: "Inducción floral (forzamiento)"
+        dias: 300
+      - nombre: "Inicio de cosecha (estimado)"
+        dias: 450
+      - nombre: "Fin de cosecha (estimado)"
+        dias: 480

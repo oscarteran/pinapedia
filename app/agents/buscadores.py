@@ -19,3 +19,14 @@ buscador_web = Agent(
     instruction=load_prompt("buscador_web"),
     tools=[google_search],
 )
+
+buscador_precios = Agent(
+    name="buscador_precios",
+    model=MODEL_LITE,
+    description=(
+        "Busca precios recientes de la piña en centrales de abasto y mercados de México, "
+        "siempre con fuente y fecha."
+    ),
+    instruction=load_prompt("buscador_precios"),
+    tools=[google_search],
+)

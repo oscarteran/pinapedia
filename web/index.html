@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PiñaPedia</title>
+  <meta name="description" content="Multi-agent pineapple production assistant built with Google ADK on GCP." />
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <span class="logo" aria-hidden="true"></span>
+      <div>
+        <h1>PiñaPedia</h1>
+        <p class="tagline" data-i18n="tagline">Asistente multi-agente para producción de piña</p>
+      </div>
+    </div>
+    <div class="actions">
+      <button id="lang" class="ghost" type="button" aria-label="Cambiar idioma">EN</button>
+      <button id="reset" class="ghost" type="button" data-i18n="reset">Nueva conversación</button>
+    </div>
+  </header>
+
+  <main id="chat" aria-live="polite">
+    <section class="welcome" id="welcome">
+      <h2 data-i18n="welcomeTitle">¿Qué quieres saber de tu cultivo?</h2>
+      <p data-i18n="welcomeText">Un coordinador dirige tu pregunta al especialista: agrónomo, planificador o clima y mercado.</p>
+      <div class="chips" id="chips"></div>
+    </section>
+  </main>
+
+  <form id="form" class="composer" autocomplete="off">
+    <textarea id="input" rows="1" maxlength="1000" required
+      data-i18n-placeholder="placeholder" placeholder="Escribe tu pregunta…"></textarea>
+    <button id="send" type="submit" data-i18n="send">Enviar</button>
+  </form>
+  <p class="foot" data-i18n="foot">Demo de portafolio · Google ADK + Gemini en Cloud Run · las respuestas pueden contener errores.</p>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

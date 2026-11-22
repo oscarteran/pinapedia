@@ -1,0 +1,12 @@
+.git
+.venv
+**/__pycache__
+**/.env
+data/
+infra/
+ingest/
+scripts/
+tests/
+.github/
+*.md
+!app/prompts/*.md

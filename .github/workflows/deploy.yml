@@ -1,0 +1,82 @@
+# CD en cada push a main: tests → build → push a Artifact Registry → deploy a Cloud Run.
+# Autenticación con Workload Identity Federation: no hay llaves guardadas en GitHub.
+#
+# Variables del repo (Settings → Secrets and variables → Actions → Variables):
+#   GCP_PROJECT_ID  → pinapedia-oht
+#   WIF_PROVIDER    → terraform output wif_provider
+#   DEPLOYER_SA     → terraform output deployer_service_account
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+env:
+  REGION: us-central1
+  SERVICE: pinapedia
+
+jobs:
+  test:
+    name: Tests
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+        with:
+          enable-cache: true
+      - run: uv sync --frozen
+      - run: uv run ruff check .
+      - run: uv run pytest -q
+
+  deploy:
+    name: Build y deploy
+    needs: test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # necesario para obtener el token OIDC de WIF
+    env:
+      IMAGE: us-central1-docker.pkg.dev/${{ vars.GCP_PROJECT_ID }}/pinapedia/app:${{ github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Autenticación con GCP (WIF)
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ vars.WIF_PROVIDER }}
+          service_account: ${{ vars.DEPLOYER_SA }}
+
+      - uses: google-github-actions/setup-gcloud@v2
+
+      - name: Build y push de la imagen
+        run: |
+          gcloud auth configure-docker ${REGION}-docker.pkg.dev --quiet
+          docker build -t "$IMAGE" .
+          docker push "$IMAGE"
+
+      # Solo cambia la imagen: la cuenta de servicio, las variables de entorno
+      # y el escalado los administra Terraform.
+      - name: Deploy a Cloud Run
+        run: |
+          gcloud run deploy "$SERVICE" \
+            --image "$IMAGE" \
+            --region "$REGION" \
+            --project "${{ vars.GCP_PROJECT_ID }}" \
+            --quiet
+
+      - name: Prueba de humo
+        run: |
+          URL=$(gcloud run services describe "$SERVICE" --region "$REGION" \
+            --project "${{ vars.GCP_PROJECT_ID }}" --format='value(status.url)')
+          echo "Servicio: $URL"
+          curl -fsS --retry 5 --retry-delay 5 "$URL/health"
+          curl -fsS -o /dev/null "$URL/"
+          # La ruta de desarrollo debe estar bloqueada por el guard.
+          test "$(curl -s -o /dev/null -w '%{http_code}' "$URL/docs")" = "404"

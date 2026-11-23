@@ -35,7 +35,8 @@ def estimar_costos(hectareas: float, densidad_plantas_ha: int | None = None) -> 
         monto = item["precio_unitario"] * densidad * hectareas
         desglose.append({"concepto": item["concepto"], "monto": round(monto, 2)})
     for item in cfg["por_hectarea"]:
-        desglose.append({"concepto": item["concepto"], "monto": round(item["monto"] * hectareas, 2)})
+        monto = item["monto"] * hectareas
+        desglose.append({"concepto": item["concepto"], "monto": round(monto, 2)})
 
     total = round(sum(d["monto"] for d in desglose), 2)
 

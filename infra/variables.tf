@@ -12,7 +12,7 @@ variable "region" {
 variable "github_repo" {
   description = "Repositorio autorizado para desplegar vía WIF, formato owner/repo."
   type        = string
-  default     = "oscarhdzteran/pinapedia-adk"
+  default     = "oscarteran/pinapedia"
 }
 
 variable "firestore_location" {
